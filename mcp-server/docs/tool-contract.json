@@ -1,0 +1,164 @@
+[
+  {
+    "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false,
+      "readOnlyHint": true
+    },
+    "description": "Consulta una solicitud ficticia asignada al usuario autenticado.",
+    "inputSchema": {
+      "properties": {
+        "solicitud_id": {
+          "pattern": "^SOL-[0-9]{4}$",
+          "title": "Solicitud Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "solicitud_id"
+      ],
+      "title": "obtener_solicitudArguments",
+      "type": "object"
+    },
+    "name": "obtener_solicitud",
+    "outputSchema": {
+      "additionalProperties": false,
+      "properties": {
+        "actualizado": {
+          "title": "Actualizado",
+          "type": "string"
+        },
+        "datos_ficticios": {
+          "const": true,
+          "default": true,
+          "title": "Datos Ficticios",
+          "type": "boolean"
+        },
+        "estado": {
+          "enum": [
+            "en_revision",
+            "aprobada",
+            "observada"
+          ],
+          "title": "Estado",
+          "type": "string"
+        },
+        "producto": {
+          "enum": [
+            "credito_personal",
+            "tarjeta"
+          ],
+          "title": "Producto",
+          "type": "string"
+        },
+        "solicitud_id": {
+          "pattern": "^SOL-[0-9]{4}$",
+          "title": "Solicitud Id",
+          "type": "string"
+        }
+      },
+      "required": [
+        "solicitud_id",
+        "producto",
+        "estado",
+        "actualizado"
+      ],
+      "title": "Solicitud",
+      "type": "object"
+    }
+  },
+  {
+    "annotations": {
+      "destructiveHint": false,
+      "idempotentHint": true,
+      "openWorldHint": false,
+      "readOnlyHint": true
+    },
+    "description": "Lista hasta diez solicitudes ficticias asignadas al usuario autenticado.",
+    "inputSchema": {
+      "properties": {
+        "limite": {
+          "default": 5,
+          "maximum": 10,
+          "minimum": 1,
+          "title": "Limite",
+          "type": "integer"
+        }
+      },
+      "title": "listar_mis_solicitudesArguments",
+      "type": "object"
+    },
+    "name": "listar_mis_solicitudes",
+    "outputSchema": {
+      "$defs": {
+        "Solicitud": {
+          "additionalProperties": false,
+          "properties": {
+            "actualizado": {
+              "title": "Actualizado",
+              "type": "string"
+            },
+            "datos_ficticios": {
+              "const": true,
+              "default": true,
+              "title": "Datos Ficticios",
+              "type": "boolean"
+            },
+            "estado": {
+              "enum": [
+                "en_revision",
+                "aprobada",
+                "observada"
+              ],
+              "title": "Estado",
+              "type": "string"
+            },
+            "producto": {
+              "enum": [
+                "credito_personal",
+                "tarjeta"
+              ],
+              "title": "Producto",
+              "type": "string"
+            },
+            "solicitud_id": {
+              "pattern": "^SOL-[0-9]{4}$",
+              "title": "Solicitud Id",
+              "type": "string"
+            }
+          },
+          "required": [
+            "solicitud_id",
+            "producto",
+            "estado",
+            "actualizado"
+          ],
+          "title": "Solicitud",
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "properties": {
+        "hay_mas": {
+          "title": "Hay Mas",
+          "type": "boolean"
+        },
+        "solicitudes": {
+          "items": {
+            "$ref": "#/$defs/Solicitud"
+          },
+          "maxItems": 10,
+          "title": "Solicitudes",
+          "type": "array"
+        }
+      },
+      "required": [
+        "solicitudes",
+        "hay_mas"
+      ],
+      "title": "ListaSolicitudes",
+      "type": "object"
+    }
+  }
+]

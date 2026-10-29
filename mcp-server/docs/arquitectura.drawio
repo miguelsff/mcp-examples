@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='utf-8'?>
+<mxfile host="app.diagrams.net" version="24.7.17">
+  <diagram id="mcp-demo" name="MCP Server">
+    <mxGraphModel dx="1100" dy="760" grid="1" gridSize="10" page="1" pageWidth="1100" pageHeight="760">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="MCP Server de ejemplo - datos sintéticos" style="rounded=1;whiteSpace=wrap;html=0;fontSize=15;fillColor=#ffffff;strokeColor=#557799;strokeColor=none;fontSize=22;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="200" y="10" width="720" height="50" />
+        </mxCell>
+        <mxCell id="boundary" value="Servidor: controles verificables" style="rounded=1;whiteSpace=wrap;html=0;fontSize=15;fillColor=#f5f5f5;strokeColor=#557799;verticalAlign=top;align=left;spacing=14;dashed=1;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="300" y="230" width="750" height="390" />
+        </mxCell>
+        <mxCell id="client" value="MCP Inspector / utilidad&#10;Cliente de prueba" style="rounded=1;whiteSpace=wrap;html=0;fontSize=15;fillColor=#dae8fc;strokeColor=#557799;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="30" y="310" width="210" height="110" />
+        </mxCell>
+        <mxCell id="issuer" value="Identidad&#10;Demo local / Entra configurado" style="rounded=1;whiteSpace=wrap;html=0;fontSize=15;fillColor=#fff2cc;strokeColor=#557799;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="330" y="100" width="300" height="95" />
+        </mxCell>
+        <mxCell id="server" value="MCP Server&#10;JWT, scopes y argumentos&#10;Límites y salida tipada" style="rounded=1;whiteSpace=wrap;html=0;fontSize=15;fillColor=#d5e8d4;strokeColor=#557799;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="340" y="310" width="280" height="120" />
+        </mxCell>
+        <mxCell id="data" value="Repositorio sintético&#10;Permisos por objeto&#10;Tres solicitudes ficticias" style="rounded=1;whiteSpace=wrap;html=0;fontSize=15;fillColor=#e1d5e7;strokeColor=#557799;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="720" y="310" width="280" height="120" />
+        </mxCell>
+        <mxCell id="audit" value="Auditoría JSON&#10;Correlación y referencias HMAC" style="rounded=1;whiteSpace=wrap;html=0;fontSize=15;fillColor=#ffe6cc;strokeColor=#557799;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="520" y="510" width="350" height="75" />
+        </mxCell>
+        <mxCell id="pending" value="Pendiente: red Azure, API real, auditoría central e integración con el Gateway." style="rounded=1;whiteSpace=wrap;html=0;fontSize=15;fillColor=#ffffff;strokeColor=#557799;strokeColor=none;fontSize=14;" vertex="1" parent="1">
+          <mxGeometry as="geometry" x="180" y="660" width="800" height="45" />
+        </mxCell>
+        <mxCell id="e1" value="Token + llamada MCP" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;" edge="1" parent="1" source="client" target="server">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e2" value="Clave pública de confianza" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;" edge="1" parent="1" source="issuer" target="server">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e3" value="Identidad validada + solicitud" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;" edge="1" parent="1" source="server" target="data">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+        <mxCell id="e4" value="Intento y resultado" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=0;endArrow=block;fontSize=12;" edge="1" parent="1" source="server" target="audit">
+          <mxGeometry as="geometry" relative="1" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

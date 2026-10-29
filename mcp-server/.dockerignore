@@ -1,0 +1,13 @@
+.demo
+.env*
+.venv
+.git
+tests
+scripts
+docs
+__pycache__
+.pytest_cache
+*.pem
+*.key
+*.zip
+*.log
